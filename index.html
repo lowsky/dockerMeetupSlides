@@ -1,28 +1,52 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="shortcut icon" href="favicon.ico">
   <title></title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <link rel="stylesheet" media="all" href="./css/default.css">
+  <link rel="stylesheet" media="all" href="css/default.css">
   <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="./css/phone.css">
   <link rel="stylesheet" href="./vendor/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="style.css">
   <base target="_blank">
   <script src="slide_config.js"></script>
   <script data-main="./js/slides" src="./js/require-1.0.8.min.js"></script>
+  <style>
+
+    .highlight hgroup {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 20px 25px;
+      border-radius: 5px
+    }
+
+    .highlight hgroup h2, .highlight hgroup h3 {
+      color: white
+    }
+
+    @media print {
+      slide {
+        width: 100%;
+      }
+    }
+
+  </style>
 </head>
 <body style="opacity: 0">
 
-<slides class="layout-widescreen">
+<slides class="layout-widescreen-faux">
 
-  <slide class="logoslide nobackground">
-    <article class="flexbox vcenter">
-      <span><img src="./images/codecentric-logo.png"></span>
-    </article>
-  </slide>
+  <!--
+    <slide class="logoslide nobackground">
+      <article class="flexbox vcenter">
+        <span><img src="./images/codecentric-logo.png"></span>
+      </article>
+    </slide>
+  -->
 
   <slide class="title-slide segue nobackground">
     <aside class="gdbar">
@@ -42,9 +66,9 @@
       <ul class="speakers">
         <li id="speaker-robert">
           <span class="name">Robert Hostlowsky</span>
-          <img src="robertHostlowsky.jpeg"
-               width="160px"
-               alt="rhosts avatar"
+          <img src="Robert-Hostlowsky.png"
+               width="180px"
+               alt="Robers avatar"
                class="avatar">
           <ul class="social">
             <li>
@@ -67,16 +91,283 @@
             </li>
           </ul>
         </li>
-        <li/>
       </ul>
     </article>
   </slide>
 
   <slide>
     <hgroup>
-      <h2>Links</h2>
+      <h2>How to make a developers life easier</h2>
     </hgroup>
     <article>
+      <section>
+        <ul>
+          <li>Intro</li>
+          <li>Situation: pipeline + blocking + waiting</li>
+          <li>Solution: having <b>multiple pipelines</b>
+            <ul>
+              <li>Dockerize webapp</li>
+              <li>Branching for each Feature -> Github's PR</li>
+              <li>naming/tagging - run every branch/version on CI server...</li>
+              <li>Setup Nginx as Proxy
+                <ul>
+                  <li>branch = webroot</li>
+                  <li>branch = host name prefix</li>
+                  <li>automatic update - how?</li>
+                </ul>
+              </li>
+              <li>
+                Docker tooling: docker-gen mech nginx-proxy
+              </li>
+            </ul>
+          </li>
+          <li>
+            Demo
+            <ul>
+              <li>Dashboard - github branches</li>
+              <li>Change or PR -> build -> result</li>
+            </ul>
+          </li>
+          <li>Summary/Alternatives:
+            * flexible names: DNSmask
+            * have kubernetes / pod managing?
+            * Coreos / fleet?
+            * docker swarm?
+            * apache mesos/marathon + HAproxy
+          </li>
+        </ul>
+      </section>
+    </article>
+  </slide>
+
+  <slide class="highlight fill nobackground"
+         style="background-image: url('ship_1527797.jpg')">
+    <hgroup><h2>We can do cool stuff with docker ...</h2></hgroup>
+  </slide>
+
+  <slide class="highlight fill nobackground"
+         style="background-image: url('shipshippingship.png');">
+    <hgroup><h2>even more cool stuff ...</h2></hgroup>
+    <article class="flexbox vcenter">
+    </article>
+  </slide>
+
+  <slide class="highlight fill nobackground"
+         style="background-image: url('git-model@2x.png');">
+    <hgroup><h2>Git helps us to handle complexity ...</h2></hgroup>
+  </slide>
+
+  <slide class="highlight fill nobackground">
+    <hgroup><h2>We can do cool stuff with github</h2></hgroup>
+    <article class="flexbox vcenter">
+      XXX
+      <img src="Branching_git-merge.png" alt=""/>
+    </article>
+  </slide>
+
+  <slide class="highlight fill">
+    <article class="flexbox vcenter">
+      <h2>So our deployments should be easy, right?</h2>
+    </article>
+  </slide>
+
+  <slide class="fill nobackground"
+         style="background-image: url('http://upload.wikimedia.org/wikipedia/commons/archive/6/65/20080130150928%21Deutsche_Post-Filiale_Tegernseer_Landstr._-_Waiting_line.JPG')">
+    <article class="flexbox vcenter">
+
+      <h1 class="centered" style="color: #ffffff; font-size: 3em; position: absolute;
+      border-radius: 0.5em;
+      padding: 0.5em;
+      background-color: rgba(0,0,0,0.4);
+bottom: 0.5em; right: 0.5em; ">
+        Still waiting?
+      </h1>
+    </article>
+  </slide>
+
+  <slide class="highlight fill">
+    <article class="flexbox vcenter">
+      <h2>Is this your deployment pipeline?</h2>
+    </article>
+  </slide>
+
+  <slide>
+    <article class="flexbox vcenter">
+      <img src="pipeline.png"/>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup><h2>Classic Build Pipeline Setup</h2></hgroup>
+    <article class="flexbox vcenter">
+      <img src="jenkBuildPipe_bpp1.png"/>
+    </article>
+  </slide>
+
+  <!--
+  <slide>
+    <hgroup><h2>Kanban, WIP limit</h2></hgroup>
+    <article class="flexbox vcenter">
+      <img src="mcpa.biz_Kanban-Board.png" width="100%">
+    </article>
+  </slide>
+  -->
+
+  <slide>
+    <hgroup>
+      <h2>Our Solution</h2>
+
+      <h3>Important steps to remove typical bottlenecks:</h3>
+    </hgroup>
+    <article class="flexbox ">
+      <ul>
+        <li>Use branches for each feature or hot-fix</li>
+        <li>Have automated tests</li>
+        <li>Have pre-commit testing, before merging "into master"</li>
+        <li><b>Have each feature branch deployed on your stage.</b></li>
+        <li>Do pair-programming or code-reviews.</li>
+      </ul>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup><h2>Dockerize a Node webapp</h2></hgroup>
+    <article>
+      <pre class="prettyprint" data-lang="Dockerfile">
+        FROM iojs:1.6.3-onbuild
+        # That's all.
+
+        # + using unusual runtime - here: io.js
+        # + automatically runs npm install on-build
+        # + copies additional files considering .dockerignore
+      </pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup><h2>GitHub Branching</h2>
+
+      <h3>Idea: Let's have one branch per feature</h3></hgroup>
+    <article class="flexbox vcenter">
+      <img src="Branching_git-merge.png" width="800px"/>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Tagging the Docker Image</h2>
+
+      <h3>'latest' won't work.</h3>
+    </hgroup>
+    <article>
+      <pre class="prettyprint" data-lang="bash">
+PROJ=project-x
+GIT_BRANCH=feature-1
+
+IMAGE=$PROJ:$GIT_BRANCH
+CONTAINER=$PROJ_$GIT_BRANCH
+
+docker build -t $IMAGE .
+docker run -d -P \
+    --name $NAME $IMAGE
+
+# optionally add git_hash ...
+        </pre>
+    </article>
+  </slide>
+
+  <slide>
+    <article class="flexbox vcenter">
+      <h2>
+        Nice!
+        <br/>
+        <br/>
+        ... who can send me <span style="text-decoration: underline;color: #0000ff;">a link</span> to
+        the latest version?
+      </h2>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Nginx Proxy</h2>
+    </hgroup>
+    <article>
+      <p>Possible mapping schemes:</p>
+      <ul>
+        <li>Forwarding to "upstream servers":
+        </li>
+        <comment>http:// <b>feature-1_ABD134EF</b> .stage.ci/project/ </comment>
+        <li style="padding-top: 1em">Forwarding and url rewriting :</li>
+        <comment>http://stage.ci/project/ <b>feature-1_ABD134EF</b></comment>
+        </li>
+      </ul>
+      <p>Complex? These Nginx configurations should be generated and deleted automatically!</p>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup><h2>Solution: nginx-proxy</h2></hgroup>
+    <article class="flexbox vcenter">
+      <p>
+        Jan Wilder created a tools for automatic Nginx proxy configuration:
+      </p>
+      <pre class="prettyprint">
+      docker run -d -p 80:80 \
+        -v /var/run/docker.sock:/tmp/docker.sock \
+        -t jwilder/nginx-proxy
+      </pre>
+      <p>
+        Built-in <b>Nginx</b>, listens to <b>docker events</b>, uses <b>docker-gen</b> with
+        host-based-rules templating
+      </p>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup><h2>Containers need extra parameter</h2></hgroup>
+    <article class="flexbox vcenter">
+      <pre class="prettyprint" data-lang="bash">
+      docker run <b>-P</b> d -name project:branchName \
+        <b> -e VIRTUAL_HOST=project-branchName.dev-stage</b>
+        project:branchName
+      </pre>
+      <p>
+      curl http://<b>project-branchName.dev-stage</b>/index.html
+      </p>
+      <p>
+      Nginx gets automatically configured on start and stop.
+      </p>
+    </article>
+  </slide>
+
+  <slide>
+    <article>
+      <p>Dashboard</p>
+      <p>changing something</p>
+      <p>adding new branch</p>
+      <p>docker events...? </p>
+      <p>nginx-proxy log </p>
+      <p> GitHub commit status </p>
+      <p> Jenkins </p>
+    </article>
+  </slide>
+
+
+  <slide class="thank-you-slide segue fill">
+    <aside class="gdbar right"><img src="images/codecentric-logo-only.png"></aside>
+    <article class="flexbox vleft auto-fadein">
+      <h2>Thank You For Listening</h2>
+    </article>
+    <p class="auto-fadein" data-config-contact>
+      <!-- populated from slide_config.json -->
+    </p>
+  </slide>
+
+
+  <slide>
+    <hgroup><h3>Links</h3></hgroup>
+    <article class="flexbox">
       <section>
         <ul>
           <li>
@@ -89,13 +380,16 @@
 
   <slide>
     <hgroup>
-      <h2>Images</h2>
+      <h3>Images</h3>
     </hgroup>
-    <article>
+    <article class="flexbox">
       <section>
         <ul>
           <li>
-            <a href="https://github.com/lowsky/dashboard/">Dashboard Project</a>
+            <a title="By User:Mattes (Own work) [CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0)], via Wikimedia Commons"
+               href="http://commons.wikimedia.org/wiki/File%3ADeutsche_Post-Filiale_Tegernseer_Landstr._-_Waiting_line.JPG"><img
+                    width="256" alt="Deutsche Post-Filiale Tegernseer Landstr. - Waiting line"
+                    src="//upload.wikimedia.org/wikipedia/commons/thumb/6/65/Deutsche_Post-Filiale_Tegernseer_Landstr._-_Waiting_line.JPG/256px-Deutsche_Post-Filiale_Tegernseer_Landstr._-_Waiting_line.JPG"/></a>
           </li>
         </ul>
       </section>
