@@ -123,7 +123,6 @@ section.footer blockquote:before, section.footer blockquote:after {
 }
 
 .thank-you-slide {
-    background-image: url("../master/images/footer-bckg.png");
+    background-image: url("images/footer-bckg.png");
     background-repeat: repeat;
-    color: #779ba6;
 }

@@ -97,44 +97,25 @@
 
   <slide>
     <hgroup>
-      <h2>How to make a developers life easier</h2>
+      <h2>How developer's life gets easier</h2>
     </hgroup>
-    <article>
+    <article class="flexbox vcenter" style="font-size: 1.5em">
       <section>
         <ul>
-          <li>Intro</li>
-          <li>Situation: pipeline + blocking + waiting</li>
-          <li>Solution: having <b>multiple pipelines</b>
+          <li>Situation
             <ul>
-              <li>Dockerize webapp</li>
-              <li>Branching for each Feature -> Github's PR</li>
-              <li>naming/tagging - run every branch/version on CI server...</li>
-              <li>Setup Nginx as Proxy
-                <ul>
-                  <li>branch = webroot</li>
-                  <li>branch = host name prefix</li>
-                  <li>automatic update - how?</li>
-                </ul>
-              </li>
-              <li>
-                Docker tooling: docker-gen mech nginx-proxy
-              </li>
+              <li>One pipeline</li>
+            </ul>
+          </li>
+          <li>Solution
+            <ul>
+              <li><b>Multiple pipelines</b></li>
             </ul>
           </li>
           <li>
             Demo
-            <ul>
-              <li>Dashboard - github branches</li>
-              <li>Change or PR -> build -> result</li>
-            </ul>
           </li>
-          <li>Summary/Alternatives:
-            * flexible names: DNSmask
-            * have kubernetes / pod managing?
-            * Coreos / fleet?
-            * docker swarm?
-            * apache mesos/marathon + HAproxy
-          </li>
+          <li>Summary</li>
         </ul>
       </section>
     </article>
@@ -142,12 +123,12 @@
 
   <slide class="highlight fill nobackground"
          style="background-image: url('ship_1527797.jpg')">
-    <hgroup><h2>We can do cool stuff with docker ...</h2></hgroup>
+    <hgroup><h2>Shipping ...</h2></hgroup>
   </slide>
 
   <slide class="highlight fill nobackground"
          style="background-image: url('shipshippingship.png');">
-    <hgroup><h2>even more cool stuff ...</h2></hgroup>
+    <hgroup><h2>Shipping ...</h2></hgroup>
     <article class="flexbox vcenter">
     </article>
   </slide>
@@ -157,12 +138,9 @@
     <hgroup><h2>Git helps us to handle complexity ...</h2></hgroup>
   </slide>
 
-  <slide class="highlight fill nobackground">
-    <hgroup><h2>We can do cool stuff with github</h2></hgroup>
-    <article class="flexbox vcenter">
-      XXX
-      <img src="Branching_git-merge.png" alt=""/>
-    </article>
+  <slide class="fill nobackground highlight"
+         style="background-image: url('Octocat.png')">
+    <hgroup><h2>GitHub</h2></hgroup>
   </slide>
 
   <slide class="highlight fill">
@@ -220,12 +198,11 @@ bottom: 0.5em; right: 0.5em; ">
       <h3>Important steps to remove typical bottlenecks:</h3>
     </hgroup>
     <article class="flexbox ">
-      <ul>
+      <ul class="build">
         <li>Use branches for each feature or hot-fix</li>
         <li>Have automated tests</li>
-        <li>Have pre-commit testing, before merging "into master"</li>
+        <li>Have pre-commit testing, before merging into master</li>
         <li><b>Have each feature branch deployed on your stage.</b></li>
-        <li>Do pair-programming or code-reviews.</li>
       </ul>
     </article>
   </slide>
@@ -310,7 +287,7 @@ docker run -d -P \
     <hgroup><h2>Solution: nginx-proxy</h2></hgroup>
     <article class="flexbox vcenter">
       <p>
-        Jan Wilder created a tools for automatic Nginx proxy configuration:
+        Jason Wilder created a simple tool for automatic Nginx proxy configuration:
       </p>
       <pre class="prettyprint">
       docker run -d -p 80:80 \
@@ -342,6 +319,7 @@ docker run -d -P \
   </slide>
 
   <slide>
+    <hgroup><h2>Demo</h2></hgroup>
     <article>
       <p>Dashboard</p>
       <p>changing something</p>
@@ -353,11 +331,23 @@ docker run -d -P \
     </article>
   </slide>
 
+  <slide>
+    <hgroup><h2>Summary/Alternatives</h2></hgroup>
+    <article>
+      <ul>
+        <li>DNSmask</li>
+        <li>HAproxy</li>
+        <li>Kubernetes / HAproxy</li>
+        <li>Coreos / etcd / fleet</li>
+        <li>Apache Mesos, Marathon + HAproxy</li>
+      </ul>
+    </article>
+  </slide>
 
   <slide class="thank-you-slide segue fill">
     <aside class="gdbar right"><img src="images/codecentric-logo-only.png"></aside>
-    <article class="flexbox vleft auto-fadein">
-      <h2>Thank You For Listening</h2>
+    <article class="flexbox vleft">
+      <h2>Thanks For Listening</h2>
     </article>
     <p class="auto-fadein" data-config-contact>
       <!-- populated from slide_config.json -->
@@ -373,6 +363,17 @@ docker run -d -P \
           <li>
             <a href="https://github.com/lowsky/dashboard/">Dashboard Project</a>
           </li>
+          <li><a href="http://git-scm.com/book/de/v1/Git-Branching-Branching-Workflows">git branching workflows</a></li>
+          <li><a href="http://www.threeriversinstitute.org/blog/?p=566">Kent Beck: Why Accelerate Deployment?</a></li>
+          <li><a href="https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow">Atlassian' Git Tutorial</a></li>
+          <li><a href="http://nvie.com/posts/a-successful-git-branching-model/">Git Branching Model</a></li>
+
+          <li><a href="http://jasonwilder.com/blog/2014/03/25/automated-nginx-reverse-proxy-for-docker/">Jason Wilder's Automated-Nginx-reverse-proxy for Docker</a></li>
+          <li><a href="https://github.com/jwilder/docker-gen">Docker-Gen</a></li>
+
+          <li><a href="http://thekelleys.org.uk/dnsmasq/doc.html">dnsmasq</a></li>
+
+          <li><a href="http://anandmanisankar.com/posts/docker-container-nginx-node-redis-example/">Docker Nginxnode Redis Example</a></li>
         </ul>
       </section>
     </article>
@@ -386,10 +387,23 @@ docker run -d -P \
       <section>
         <ul>
           <li>
+            <a href="http://blog.education.nationalgeographic.com/2015/01/14/enabling-globalization-the-container/">Ship
+              other shipping ships</a></li>
+          <li>
+          <li><a href="http://geographyeducation.org/2013/10/14/ship-shipping-ships/">Ship-Shipping Ships</a></li>
+          <li>
             <a title="By User:Mattes (Own work) [CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0)], via Wikimedia Commons"
-               href="http://commons.wikimedia.org/wiki/File%3ADeutsche_Post-Filiale_Tegernseer_Landstr._-_Waiting_line.JPG"><img
-                    width="256" alt="Deutsche Post-Filiale Tegernseer Landstr. - Waiting line"
-                    src="//upload.wikimedia.org/wikipedia/commons/thumb/6/65/Deutsche_Post-Filiale_Tegernseer_Landstr._-_Waiting_line.JPG/256px-Deutsche_Post-Filiale_Tegernseer_Landstr._-_Waiting_line.JPG"/></a>
+               href="http://commons.wikimedia.org/wiki/File%3ADeutsche_Post-Filiale_Tegernseer_Landstr._-_Waiting_line.JPG">Deutsche Post Filiale (Mattes)</a>
+          </li>
+          <li>
+            <a href="http://www.cloudsidekick.com/blog/expanding-your-cd-pipeline-part-one.html">Complete Delivery
+              Pipeline</a>
+          </li>
+          <li><a href="https://github.com/logos">Octocat</a></li>
+          <li>
+            <a href="http://twasink.net/2011/09/20/git-feature-branches-and-jenkins-or-how-i-learned-to-stop-worrying-about-broken-builds/">Software
+              is too expensive to build cheaply….</a></li>
+          <li><a href="http://nvie.com/posts/a-successful-git-branching-model/">A successful Git branching model</a>
           </li>
         </ul>
       </section>

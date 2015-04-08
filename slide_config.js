@@ -1,7 +1,7 @@
 var SLIDE_CONFIG = {
     settings: {
         title: 'Optimize Continuous Delivery with Docker',
-        subtitle: 'Life of developers gets easier.',
+        subtitle: 'Non-blocking delivery pipeline',
         useBuilds: true,
         usePrettify: true,
         enableSlideAreas: true,
@@ -17,10 +17,10 @@ var SLIDE_CONFIG = {
         {
             name: 'Robert Hostlowsky',
             company: 'IT Consultant <br>codecentric AG',
-            gplus: 'https://plus.google.com/116153478474242769339',
             twitter: '@rhosts',
             www: 'http://blog.codecentric.de',
-            github: 'https://github.com/lowsky/'
+            github: 'https://github.com/lowsky/',
+            gplus: 'https://plus.google.com/116153478474242769339'
         }
     ]
 };
