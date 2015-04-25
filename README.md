@@ -6,3 +6,4 @@
 
 The demo will show the dashboard project: [https://github.com/lowsky/dashboard]
 
+[Present Mode](http://lowsky.github.io/dockerMeetupSlides?presentMe=true)
