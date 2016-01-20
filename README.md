@@ -8,7 +8,8 @@
 
 The demo will show the dashboard project: [https://github.com/lowsky/dashboard]
 
-[Present Mode](http://lowsky.github.io/dockerMeetupSlides?presentMe=true)
+[Present Mode](http://lowsky.github.io/dockerMeetupSlides/?presentMe=true)
+[Normal Mode](http://lowsky.github.io/dockerMeetupSlides/?presentMe=false)
 
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/lowsky/dockermeetupslides/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
